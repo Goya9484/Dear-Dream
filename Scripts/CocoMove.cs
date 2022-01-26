@@ -286,7 +286,7 @@ public class CocoMove : MonoBehaviour
         movement.Set(horizontalMove, 0, verticalMove);
         movement = movement.normalized * moveSpeed * Time.deltaTime;
 
-        myRigid.MovePosition(transform.position + movement);
+        myRigid.MovePosition(transform.position + movement); //월드좌표 기준 - 세상을 기준으로 XYZ축 방향을 결정해 움직임
     }
 
     void Turn()
@@ -335,7 +335,7 @@ public class CocoMove : MonoBehaviour
     {
         Vector3 dir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         
-        transform.Translate(dir * moveSpeed * Time.deltaTime);
+        transform.Translate(dir * moveSpeed * Time.deltaTime); //로컬좌표 기준 - 오브젝트를 기준으로 XYZ축 방향을 결정해 움직임
     }
 
     void OnCollisionEnter(Collision col)
